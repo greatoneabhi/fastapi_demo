@@ -1,3 +1,4 @@
+from typing import List
 from fastapi import APIRouter, Request, Response
 from api.model.user import User
 
@@ -19,7 +20,7 @@ def create_user(request: Request, user: User):
     return Response(content=json.dumps(user.model_dump(by_alias=True)), media_type="application/json")
 
 
-@user.get("/users", response_model=list[User], tags=["user"])
+@user.get("/users", response_model=List[User], tags=["user"])
 def get_users(request: Request):
     logger.info(f"get users")
     users = []
