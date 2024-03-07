@@ -13,7 +13,11 @@ load_dotenv()
 mongodb_uri = os.getenv("MONGODB_URI")
 database_name = os.getenv("DATABASE_NAME")
 
-logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s", datefmt="%Y-%m-%d %H:%M:%S")
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s",
+    datefmt="%Y-%m-%d %H:%M:%S",
+)
 logger = logging.getLogger(__name__)
 
 
@@ -43,4 +47,3 @@ async def add_process_time_header(request, call_next):
 @app.get("/health")
 def health():
     return {"status": "UP"}
-

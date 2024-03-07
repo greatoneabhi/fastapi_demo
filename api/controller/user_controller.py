@@ -29,8 +29,3 @@ def get_users(request: Request):
         user_db["_id"] = str(user_db["_id"])
         users.append(User(**user_db).model_dump(by_alias=True))
     return Response(content=json.dumps(users), media_type="application/json")
-
-
-
-
-    
